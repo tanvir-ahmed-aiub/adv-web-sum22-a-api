@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/hello',[APIController::class,'hello']);
 Route::post('/student/create',[APIController::class,'create']);
-Route::get('/student/list',[APIController::class,'list']);
+Route::get('/student/list',[APIController::class,'list'])->middleware('APIAuth');
+Route::post('/login',[APIController::class,'login']);
+Route::any('/logout',[APIController::class,'logout']);
